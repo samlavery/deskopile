@@ -42,5 +42,9 @@ Everyone with children who works remotely has at one point had them burst into t
 
 
 ## Status
-prototyping
+prototyping....
+
+I was able to get D6T wired up with pulldown resistors on a breadboard connected via I2C to the mega 256!  It worked the first time amazingly.  The sensor appears to read ambient at 60F, clothing at 80F, and skin at about 90F, these are numbers we can work with!  So far so good!  But I need go back and rewire things up properly before moving on to the next steps.
+
+More to come.
 

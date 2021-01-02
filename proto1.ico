@@ -1,0 +1,49 @@
+#include <Wire.h>
+#define D6T_ID 0x0A
+#define D6T_CMD 0x4C
+
+int ReadBuffer[35];
+float ptat;
+float tdata[16];
+
+void setup() {
+  Wire.begin();
+  Serial.begin(9600);
+  delay(500);
+}
+
+void loop() {
+  int i;
+  Wire.beginTransmission(D6T_ID);
+  Wire.write(D6T_CMD);
+  Wire.endTransmission();
+  Wire.requestFrom(D6T_ID,35);
+
+  for (i=0; i<35; ++i) {
+    ReadBuffer[i] = Wire.read();
+  }
+  ptat = (ReadBuffer[0]+(ReadBuffer[1]*256))*0.1; //Reference Temp
+  for (i=0; i<16; ++i) {
+    tdata[i] = (ReadBuffer[(i*2+2)]+(ReadBuffer[(i*2+3)]*256))*0.1;
+  }
+
+  float tempF;
+
+  if ( ((tdata[0]*9.0/5.0)+32.0)>0 )
+  {
+    for (i=0; i<16; ++i)
+    {
+      tempF = (tdata[i]*9.0/5.0)+32.0;
+      Serial.print(tempF);
+       Serial.println();
+      Serial.print(',');
+    }
+    Serial.print(ptat*9.0/5.0)+32.0;
+    Serial.print(',');
+    Serial.println();
+  }
+
+}
+  
+
+ 
