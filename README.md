@@ -46,5 +46,9 @@ prototyping....
 
 I was able to get D6T wired up with pulldown resistors on a breadboard connected via I2C to the mega 256!  It worked the first time amazingly.  The sensor appears to read ambient at 60F, clothing at 80F, and skin at about 90F, these are numbers we can work with!  So far so good!  But I need go back and rewire things up properly before moving on to the next steps.
 
+#----
+Nice!  This sensor is pretty rad, now I need to refine to decsion making algorith into something sane, but this will work!  See second example prototype arduino code!
+
+
 More to come.
 
